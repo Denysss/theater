@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="
+ 		http://www.springframework.org/schema/beans
+ 		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+ 		http://www.springframework.org/schema/util
+ 		http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+
+	<bean id="serviceProvider" class="com.epam.spring.theater.ServiceProvider">
+		<constructor-arg ref="userService"/>
+		<constructor-arg ref="auditoriumService"/>
+		<constructor-arg ref="bookingService"/>
+		<constructor-arg ref="discountService"/>
+		<constructor-arg ref="eventService"/>
+	</bean>
+
+	<bean id="auditoriumService" class="com.epam.spring.theater.services.impl.AuditoriumServiceImpl">
+		<constructor-arg ref="auditoriumList"/>
+	</bean>
+
+	<bean id="bookingService" class="com.epam.spring.theater.services.impl.BookingServiceImpl"
+		p:coefficientForVipSeat="${coefficientForVipSeat}"
+		p:coefficientForHighRating="${coefficientForHighRating}"
+		p:coefficientForMidRating="${coefficientForMidRating}"
+		p:coefficientForLowRating="${coefficientForLowRating}">
+		<constructor-arg ref="booking"/>
+		<constructor-arg ref="discountService"/>
+	</bean>
+
+	<bean id="discountService" class="com.epam.spring.theater.services.impl.DiscountServiceImpl">
+		<constructor-arg ref="discountList"/>
+	</bean>
+
+	<bean id="eventService" class="com.epam.spring.theater.services.impl.EventServiceImpl">
+		<constructor-arg ref="eventList"/>
+	</bean>
+
+	<bean id="userService" class="com.epam.spring.theater.services.impl.UserServiceImpl">
+		<constructor-arg ref="userList"/>
+	</bean>
+
+</beans>

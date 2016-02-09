@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="
+ 		http://www.springframework.org/schema/beans
+ 		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+ 		http://www.springframework.org/schema/util
+ 		http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+
+	<bean id="booking" class="com.epam.spring.theater.domain.Booking">
+		<constructor-arg name="bookedTickes">
+			<list>
+				<ref bean="ticket_1"/>
+				<ref bean="ticket_2"/>
+				<ref bean="ticket_3"/>
+				<ref bean="ticket_4"/>
+				<ref bean="ticket_5"/>
+				<ref bean="ticket_6"/>
+				<ref bean="ticket_7"/>
+				<ref bean="ticket_8"/>
+				<ref bean="ticket_9"/>
+				<ref bean="ticket_10"/>
+				<ref bean="ticket_11"/>
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="ticket_1" class="com.epam.spring.theater.domain.Ticket">
+		<constructor-arg type="com.epam.spring.theater.domain.Event" name="event" ref="event_1"/>
+		<constructor-arg type="java.lang.String" name="seat" value="3"/>
+		<constructor-arg type="double" name="price" value="65.01"/>
+	</bean>
+
+	<bean id="ticket_2" class="com.epam.spring.theater.domain.Ticket">
+		<constructor-arg type="com.epam.spring.theater.domain.Event" name="event" ref="event_1"/>
+		<constructor-arg type="java.lang.String" name="seat" value="4"/>
+		<constructor-arg type="double" name="price" value="65.02"/>
+	</bean>
+
+	<bean id="ticket_3" class="com.epam.spring.theater.domain.Ticket">
+		<constructor-arg type="com.epam.spring.theater.domain.Event" name="event" ref="event_1"/>
+		<constructor-arg type="java.lang.String" name="seat" value="5"/>
+		<constructor-arg type="double" name="price" value="65.03"/>
+	</bean>
+	
+	<bean id="ticket_4" class="com.epam.spring.theater.domain.Ticket">
+		<constructor-arg type="com.epam.spring.theater.domain.Event" name="event" ref="event_2"/>
+		<constructor-arg type="java.lang.String" name="seat" value="6"/>
+		<constructor-arg type="double" name="price" value="65.04"/>
+	</bean>
+
+	<bean id="ticket_5" class="com.epam.spring.theater.domain.Ticket">
+		<constructor-arg type="com.epam.spring.theater.domain.Event" name="event" ref="event_2"/>
+		<constructor-arg type="java.lang.String" name="seat" value="7"/>
+		<constructor-arg type="double" name="price" value="65.05"/>
+	</bean>
+
+	<bean id="ticket_6" class="com.epam.spring.theater.domain.Ticket">
+		<constructor-arg type="com.epam.spring.theater.domain.Event" name="event" ref="event_2"/>
+		<constructor-arg type="java.lang.String" name="seat" value="8"/>
+		<constructor-arg type="double" name="price" value="65.06"/>
+	</bean>
+
+	<bean id="ticket_7" class="com.epam.spring.theater.domain.Ticket">
+		<constructor-arg type="com.epam.spring.theater.domain.Event" name="event" ref="event_2"/>
+		<constructor-arg type="java.lang.String" name="seat" value="9"/>
+		<constructor-arg type="double" name="price" value="65.07"/>
+	</bean>
+	
+	<bean id="ticket_8" class="com.epam.spring.theater.domain.Ticket">
+		<constructor-arg type="com.epam.spring.theater.domain.Event" name="event" ref="event_2"/>
+		<constructor-arg type="java.lang.String" name="seat" value="10"/>
+		<constructor-arg type="double" name="price" value="65.08"/>
+	</bean>
+	
+	<bean id="ticket_9" class="com.epam.spring.theater.domain.Ticket">
+		<constructor-arg type="com.epam.spring.theater.domain.Event" name="event" ref="event_2"/>
+		<constructor-arg type="java.lang.String" name="seat" value="11"/>
+		<constructor-arg type="double" name="price" value="65.09"/>
+	</bean>
+	
+	<bean id="ticket_10" class="com.epam.spring.theater.domain.Ticket">
+		<constructor-arg type="com.epam.spring.theater.domain.Event" name="event" ref="event_2"/>
+		<constructor-arg type="java.lang.String" name="seat" value="12"/>
+		<constructor-arg type="double" name="price" value="65.10"/>
+	</bean>
+
+	<bean id="ticket_11" class="com.epam.spring.theater.domain.Ticket">
+		<constructor-arg type="com.epam.spring.theater.domain.Event" name="event" ref="event_2"/>
+		<constructor-arg type="java.lang.String" name="seat" value="24"/>
+		<constructor-arg type="double" name="price" value="65.11"/>
+	</bean>
+	
+</beans>

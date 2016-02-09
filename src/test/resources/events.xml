@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="
+ 		http://www.springframework.org/schema/beans
+ 		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+ 		http://www.springframework.org/schema/util
+ 		http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+
+	<bean id="events" class="com.epam.spring.theater.services.impl.EventServiceImpl">
+		<constructor-arg ref="eventList"/>
+	</bean>
+
+	<util:list id="eventList" value-type="com.epam.spring.theater.domain.Event">
+		<ref bean="event_1"/>
+		<ref bean="event_2"/>
+		<ref bean="event_3"/>
+		<ref bean="event_4"/>
+		<ref bean="event_5"/>
+		<ref bean="event_6"/>
+		<ref bean="event_7"/>
+		<ref bean="event_8"/>
+		<ref bean="event_9"/>
+		<ref bean="event_10"/>
+	</util:list>
+
+	<bean id="event_1" class="com.epam.spring.theater.domain.Event">
+		<constructor-arg ref="choice"/>
+		<constructor-arg ref="green"/>
+		<constructor-arg type="org.joda.time.LocalDate" name="date" value="#{ T(org.joda.time.LocalDate).parse('2016-02-11') }"/>
+		<constructor-arg type="org.joda.time.LocalTime" name="time" value="#{ T(org.joda.time.LocalTime).parse('15:00:00') }"/>
+		<constructor-arg type="double" name="basePriceForTicket" value="65.00"/>
+		<constructor-arg type="com.epam.spring.theater.enums.Rating" name="rating" value="mid"/>
+	</bean>
+
+	<bean id="event_2" class="com.epam.spring.theater.domain.Event">
+		<constructor-arg ref="tumbledown"/>
+		<constructor-arg ref="red"/>
+		<constructor-arg type="org.joda.time.LocalDate" name="date" value="#{ T(org.joda.time.LocalDate).parse('2016-02-11') }"/>
+		<constructor-arg type="org.joda.time.LocalTime" name="time" value="#{ T(org.joda.time.LocalTime).parse('15:30:00') }"/>
+		<constructor-arg type="double" name="basePriceForTicket" value="70.00"/>
+		<constructor-arg type="com.epam.spring.theater.enums.Rating" name="rating" value="low"/>
+	</bean>
+
+	<bean id="event_3" class="com.epam.spring.theater.domain.Event">
+		<constructor-arg ref="greenMile"/>
+		<constructor-arg ref="blue"/>
+		<constructor-arg type="org.joda.time.LocalDate" name="date" value="#{ T(org.joda.time.LocalDate).parse('2016-02-11') }"/>
+		<constructor-arg type="org.joda.time.LocalTime" name="time" value="#{ T(org.joda.time.LocalTime).parse('16:15:00') }"/>
+		<constructor-arg type="double" name="basePriceForTicket" value="65.00"/>
+		<constructor-arg type="com.epam.spring.theater.enums.Rating" name="rating" value="high"/>
+	</bean>
+
+	<bean id="event_4" class="com.epam.spring.theater.domain.Event">
+		<constructor-arg ref="tumbledown"/>
+		<constructor-arg ref="green"/>
+		<constructor-arg type="org.joda.time.LocalDate" name="date" value="#{ T(org.joda.time.LocalDate).parse('2016-02-11') }"/>
+		<constructor-arg type="org.joda.time.LocalTime" name="time" value="#{ T(org.joda.time.LocalTime).parse('17:15:00') }"/>
+		<constructor-arg type="double" name="basePriceForTicket" value="65.00"/>
+		<constructor-arg type="com.epam.spring.theater.enums.Rating" name="rating" value="mid"/>
+	</bean>
+
+	<bean id="event_5" class="com.epam.spring.theater.domain.Event">
+		<constructor-arg ref="choice"/>
+		<constructor-arg ref="red"/>
+		<constructor-arg type="org.joda.time.LocalDate" name="date" value="#{ T(org.joda.time.LocalDate).parse('2016-02-11') }"/>
+		<constructor-arg type="org.joda.time.LocalTime" name="time" value="#{ T(org.joda.time.LocalTime).parse('18:00:00') }"/>
+		<constructor-arg type="double" name="basePriceForTicket" value="70.00"/>
+		<constructor-arg type="com.epam.spring.theater.enums.Rating" name="rating" value="low"/>
+	</bean>
+
+	<bean id="event_6" class="com.epam.spring.theater.domain.Event">
+		<constructor-arg ref="greenMile"/>
+		<constructor-arg ref="blue"/>
+		<constructor-arg type="org.joda.time.LocalDate" name="date" value="#{ T(org.joda.time.LocalDate).parse('2016-02-11') }"/>
+		<constructor-arg type="org.joda.time.LocalTime" name="time" value="#{ T(org.joda.time.LocalTime).parse('20:00:00') }"/>
+		<constructor-arg type="double" name="basePriceForTicket" value="65.00"/>
+		<constructor-arg type="com.epam.spring.theater.enums.Rating" name="rating" value="mid"/>
+	</bean>
+
+	<bean id="event_7" class="com.epam.spring.theater.domain.Event">
+		<constructor-arg ref="choice"/>
+		<constructor-arg ref="green"/>
+		<constructor-arg type="org.joda.time.LocalDate" name="date" value="#{ T(org.joda.time.LocalDate).parse('2016-02-12') }"/>
+		<constructor-arg type="org.joda.time.LocalTime" name="time" value="#{ T(org.joda.time.LocalTime).parse('15:00:00') }"/>
+		<constructor-arg type="double" name="basePriceForTicket" value="65.00"/>
+		<constructor-arg type="com.epam.spring.theater.enums.Rating" name="rating" value="mid"/>
+	</bean>
+
+	<bean id="event_8" class="com.epam.spring.theater.domain.Event">
+		<constructor-arg ref="tumbledown"/>
+		<constructor-arg ref="red"/>
+		<constructor-arg type="org.joda.time.LocalDate" name="date" value="#{ T(org.joda.time.LocalDate).parse('2016-02-12') }"/>
+		<constructor-arg type="org.joda.time.LocalTime" name="time" value="#{ T(org.joda.time.LocalTime).parse('15:30:00') }"/>
+		<constructor-arg type="double" name="basePriceForTicket" value="70.00"/>
+		<constructor-arg type="com.epam.spring.theater.enums.Rating" name="rating" value="low"/>
+	</bean>
+
+	<bean id="event_9" class="com.epam.spring.theater.domain.Event">
+		<constructor-arg ref="greenMile"/>
+		<constructor-arg ref="blue"/>
+		<constructor-arg type="org.joda.time.LocalDate" name="date" value="#{ T(org.joda.time.LocalDate).parse('2016-02-12') }"/>
+		<constructor-arg type="org.joda.time.LocalTime" name="time" value="#{ T(org.joda.time.LocalTime).parse('16:15:00') }"/>
+		<constructor-arg type="double" name="basePriceForTicket" value="65.00"/>
+		<constructor-arg type="com.epam.spring.theater.enums.Rating" name="rating" value="high"/>
+	</bean>
+	
+	<bean id="event_10" class="com.epam.spring.theater.domain.Event">
+		<constructor-arg ref="greenMile"/>
+		<constructor-arg ref="blue"/>
+		<constructor-arg type="org.joda.time.LocalDate" name="date" value="#{ T(org.joda.time.LocalDate).parse('2016-02-13') }"/>
+		<constructor-arg type="org.joda.time.LocalTime" name="time" value="#{ T(org.joda.time.LocalTime).parse('16:00:00') }"/>
+		<constructor-arg type="double" name="basePriceForTicket" value="65.00"/>
+		<constructor-arg type="com.epam.spring.theater.enums.Rating" name="rating" value="mid"/>
+	</bean>
+	
+</beans>

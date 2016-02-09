@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+ 		http://www.springframework.org/schema/beans
+ 		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+ 		http://www.springframework.org/schema/util
+ 		http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+	
+	<bean id="choice" class="com.epam.spring.theater.domain.Movie">
+		<constructor-arg type="java.lang.String" value="The Choice"></constructor-arg>
+	</bean>
+
+	<bean id="tumbledown" class="com.epam.spring.theater.domain.Movie">
+		<constructor-arg type="java.lang.String" value="Tumbledown"></constructor-arg>
+	</bean>
+
+	<bean id="greenMile" class="com.epam.spring.theater.domain.Movie">
+		<constructor-arg type="java.lang.String" value="The Green Mile"></constructor-arg>
+	</bean>
+	
+</beans>
