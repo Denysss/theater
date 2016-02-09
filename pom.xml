@@ -10,6 +10,7 @@
 
   <properties>
     <spring.ver>3.2.16.RELEASE</spring.ver>
+    <aspectj.ver>1.8.8</aspectj.ver>
   </properties>
 
   <dependencies>
@@ -60,6 +61,18 @@
       <version>4.12</version>
       <scope>test</scope>
     </dependency>
+
+	<!-- AOP - aspectj -->
+	<dependency>
+		<groupId>org.aspectj</groupId>
+		<artifactId>aspectjweaver</artifactId>
+		<version>${aspectj.ver}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.aspectj</groupId>
+		<artifactId>aspectjrt</artifactId>
+		<version>${aspectj.ver}</version>
+	</dependency>
     
   </dependencies>
 	
