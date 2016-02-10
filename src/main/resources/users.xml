@@ -29,6 +29,7 @@
 		<constructor-arg type="java.util.List" name="tickets">
 			<list/>
 		</constructor-arg>
+		<constructor-arg type="int" name="numberOfBookedLuckyTickets" value="0"/>
 	</bean>
 	
 	<bean id="user_1" class="com.epam.spring.theater.domain.User">
@@ -42,6 +43,7 @@
 				<ref bean="ticket_2"/>
 			</list>
 		</constructor-arg>
+		<constructor-arg type="int" name="numberOfBookedLuckyTickets" value="0"/>
 	</bean>
 	
 	<bean id="user_2" class="com.epam.spring.theater.domain.User">
@@ -63,6 +65,7 @@
 				<ref bean="ticket_11"/>
 			</list>
 		</constructor-arg>
+		<constructor-arg type="int" name="numberOfBookedLuckyTickets" value="0"/>
 	</bean>
 	
 	<bean id="user_3" class="com.epam.spring.theater.domain.User">
@@ -74,6 +77,7 @@
 		<constructor-arg type="java.util.List" name="tickets">
 			<list/>
 		</constructor-arg>
+		<constructor-arg type="int" name="numberOfBookedLuckyTickets" value="0"/>
 	</bean>
 	
 </beans>

@@ -1,5 +1,6 @@
 package com.epam.spring.theater.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Booking {
@@ -9,6 +10,10 @@ public class Booking {
 	public Booking(List<Ticket> bookedTickes) {
 		setBookedTickes(bookedTickes);
 	}
+	
+	public Booking() {
+		setBookedTickes(new ArrayList<Ticket>());
+	} 
 
 	public List<Ticket> getTickets() {
 		return bookedTickes;
@@ -19,12 +24,6 @@ public class Booking {
 	}
 
 	public boolean addBookedTicket(Ticket ticket) {
-
-		if (ticket == null) {
-			System.out.println("Ticket is null");
-			return false;
-		}
-
 		bookedTickes.add(ticket);
 		return true;
 	}

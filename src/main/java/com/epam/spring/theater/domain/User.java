@@ -13,22 +13,24 @@ public class User {
 	private LocalDate birthday;
 	private boolean admin;
 	private List<Ticket> tickets;
+	private int numberOfBookedLuckyTickets;
 
-	public User(long id, String name, String email, LocalDate birthday, boolean admin, List<Ticket> tickets) {
+	public User(long id, String name, String email, LocalDate birthday, boolean admin, List<Ticket> tickets, int numberOfBookedLuckyTickets) {
 		setId(id);
 		setName(name);
 		setEmail(email);
 		setBirthday(birthday);
 		setAdmin(admin);
 		setTickets(tickets);
+		setNumberOfBookedLuckyTickets(numberOfBookedLuckyTickets);
 	}
 
 	public User(long id, String name, String email, String birthday, boolean admin) {
-		this(id, name, email, LocalDate.parse(birthday), admin, new ArrayList<Ticket>());
+		this(id, name, email, LocalDate.parse(birthday), admin, new ArrayList<Ticket>(), 0);
 	}
 
 	public User() {
-		this(0, "", "", LocalDate.parse("1900-01-01"), false, new ArrayList<Ticket>());
+		this(0, "", "", LocalDate.parse("1900-01-01"), false, new ArrayList<Ticket>(), 0);
 	}
 
 	public long getId() {
@@ -93,6 +95,18 @@ public class User {
 		tickets.add(ticket);
 		System.out.println("Ticket is added to user");
 		return true;
+	}
+	
+	private void setNumberOfBookedLuckyTickets(int num) {
+		numberOfBookedLuckyTickets = num;
+	}
+	
+	public int getNumberOfBookedLuckyTickets() {
+		return numberOfBookedLuckyTickets;
+	}
+	
+	public void winLuckyTicket() {
+		numberOfBookedLuckyTickets++;
 	}
 
 	@Override
