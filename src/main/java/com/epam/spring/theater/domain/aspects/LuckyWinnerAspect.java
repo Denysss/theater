@@ -32,7 +32,8 @@ public class LuckyWinnerAspect {
 	private void drawLottery(Ticket ticket) {
 	}
 
-	@Pointcut("execution(boolean *.bookTicket(com.epam.spring.theater.domain.User,com.epam.spring.theater.domain.Ticket)) && args(user,ticket)")
+	@Pointcut("execution(boolean *.bookTicket(com.epam.spring.theater.domain.User,com.epam.spring.theater.domain.Ticket)) "
+			+ "&& args(user,ticket)")
 	private void setLotteryResultToUser(User user, Ticket ticket) {
 	}
 
