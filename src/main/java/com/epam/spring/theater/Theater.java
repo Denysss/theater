@@ -21,6 +21,8 @@ public class Theater {
 		CounterAspect ca = (CounterAspect) ctx.getBean("counterAspect");
 		LuckyWinnerAspect lwa = (LuckyWinnerAspect) ctx.getBean("luckyWinnerAspect");
 		DiscountAspect da = (DiscountAspect) ctx.getBean("discountAspect");
+		
+		
 
 		Event event1 = sp.eventService.getAll().get(0);
 		Event event2 = sp.eventService.getAll().get(2);

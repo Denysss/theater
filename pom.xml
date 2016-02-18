@@ -11,6 +11,7 @@
   <properties>
     <spring.ver>3.2.16.RELEASE</spring.ver>
     <aspectj.ver>1.8.8</aspectj.ver>
+    <h2database.ver>1.4.191</h2database.ver>
   </properties>
 
   <dependencies>
@@ -72,6 +73,12 @@
 		<groupId>org.aspectj</groupId>
 		<artifactId>aspectjrt</artifactId>
 		<version>${aspectj.ver}</version>
+	</dependency>
+    
+	<dependency>
+		<groupId>com.h2database</groupId>
+		<artifactId>h2</artifactId>
+		<version>${h2database.ver}</version>
 	</dependency>
     
   </dependencies>
