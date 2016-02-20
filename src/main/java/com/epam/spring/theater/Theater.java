@@ -1,10 +1,12 @@
 package com.epam.spring.theater;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.epam.spring.theater.domain.Auditorium;
 import com.epam.spring.theater.domain.Event;
 import com.epam.spring.theater.domain.Ticket;
 import com.epam.spring.theater.domain.User;
@@ -23,7 +25,20 @@ public class Theater {
 		DiscountAspect da = (DiscountAspect) ctx.getBean("discountAspect");
 		
 		
-
+		
+		DBProvider db = (DBProvider) ctx.getBean("dbProvider");
+		
+		List<Auditorium> audit = db.jdbcAuditoriumDao.selectAll();
+		System.out.println(audit.toString());
+		
+		String seats = db.jdbcAuditoriumDao.getSeatsNumber("Red");
+		System.out.println(seats);
+		
+		String vipSeats = db.jdbcAuditoriumDao.getVipSeats("Green");
+		System.out.println(vipSeats);
+		
+		
+		
 		Event event1 = sp.eventService.getAll().get(0);
 		Event event2 = sp.eventService.getAll().get(2);
 		Event event3 = sp.eventService.getAll().get(6);

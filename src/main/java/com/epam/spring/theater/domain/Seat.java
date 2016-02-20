@@ -9,6 +9,11 @@ public class Seat {
 		setSeatNumber(seatNumber);
 	}
 
+	public Seat(String seatNumber, boolean isVip) {
+		setSeatNumber(seatNumber);
+		setVipSeat(isVip);
+	}
+	
 	public String getSeatNumber() {
 		return seatNumber;
 	}

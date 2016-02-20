@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.epam.spring.theater.domain.Auditorium;
 import com.epam.spring.theater.domain.Seat;
+import com.epam.spring.theater.helper.Converter;
 import com.epam.spring.theater.services.AuditoriumService;
 
 public class AuditoriumServiceImpl extends Service implements AuditoriumService {
@@ -55,17 +56,7 @@ public class AuditoriumServiceImpl extends Service implements AuditoriumService 
 	}
 
 	protected String convertSeats(List<Seat> seats) {
-		String strSeats = "";
-
-		for (Seat seat : seats) {
-			strSeats = strSeats + seat.getSeatNumber();
-			strSeats = strSeats + ", ";
-		}
-
-		if (strSeats.length() > 1)
-			strSeats = strSeats.substring(0, strSeats.length() - 2);
-
-		return strSeats;
+		return Converter.covert(seats, ", ");
 	}
 
 }

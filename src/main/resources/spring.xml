@@ -26,6 +26,7 @@
 	<import resource="seats.xml" />
 	<import resource="services.xml" />
 	<import resource="users.xml" />
+	<import resource="db.xml" />
 
 	<aop:aspectj-autoproxy />
 
@@ -34,6 +35,7 @@
 		<property name="locations">
 			<list>
 				<value>classpath:bookingService.properties</value>
+				<value>classpath:db.properties</value>
 			</list>
 		</property>
 		<property name="ignoreResourceNotFound" value="true" />
