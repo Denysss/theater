@@ -7,6 +7,7 @@ import com.epam.spring.theater.enums.Rating;
 
 public class Event {
 
+	private long id;
 	private Movie movie;
 	private Auditorium auditorium;
 	private double basePriceForTicket;
@@ -64,6 +65,12 @@ public class Event {
 
 	public Event(Movie movie, Auditorium auditorium, LocalDate date, LocalTime time, double basePriceForTicket,
 			Rating rating) {
+		this(0L, movie, auditorium, date, time, basePriceForTicket, rating);
+	}
+
+	public Event(long id, Movie movie, Auditorium auditorium, LocalDate date, LocalTime time, double basePriceForTicket,
+			Rating rating) {
+		setId(id);
 		setMovie(movie);
 		setAuditorium(auditorium);
 		setDate(date);
@@ -79,9 +86,18 @@ public class Event {
 
 	@Override
 	public String toString() {
-		return "Event [movieName=" + movie.getName() + ", auditorium=" + auditorium.getName() + ", date="
+		/*return "Event [movieName=" + movie.getName() + ", auditorium=" + auditorium.getName() + ", date="
 				+ date.toString() + ", time=" + time.toString() + ", basePriceForTicket=" + basePriceForTicket
-				+ ", rating=" + rating + "]";
+				+ ", rating=" + rating + "]";*/
+		return "Event[" + id + ", " + movie + ", " + auditorium + ", " + basePriceForTicket + ", " + rating + ", " + date + ", " + time + "]";
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 }

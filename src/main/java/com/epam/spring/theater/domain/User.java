@@ -26,9 +26,13 @@ public class User {
 	}
 
 	public User(long id, String name, String email, String birthday, boolean admin) {
-		this(id, name, email, LocalDate.parse(birthday), admin, new ArrayList<Ticket>(), 0);
+		this(id, name, email, LocalDate.parse(birthday), admin);
 	}
 
+	public User(long id, String name, String email, LocalDate birthday, boolean admin) {
+		this(id, name, email, birthday, admin, new ArrayList<Ticket>(), 0);
+	}
+	
 	public User() {
 		this(0, "", "", LocalDate.parse("1900-01-01"), false, new ArrayList<Ticket>(), 0);
 	}

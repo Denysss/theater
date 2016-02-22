@@ -2,16 +2,31 @@ package com.epam.spring.theater.domain;
 
 public class Ticket {
 
+	private long id;
+	private User user;
 	private Event event;
 	private String seat;
 	private double price;
 
-	public Ticket(Event event, String seat, double price) {
+	public Ticket(long id, User user, Event event, String seat, double price) {
+		setId(id);
 		setEvent(event);
 		setSeat(seat);
 		setPrice(price);
 	}
 
+	public Ticket(User user, Event event, String seat, double price) {
+		this(0L, user, event, seat, price);
+	}
+
+	public long getId() {
+		return id;
+	}
+	
+	protected void setId(long id) {
+		this.id = id;
+	}
+	
 	public Event getEvent() {
 		return event;
 	}
@@ -36,9 +51,4 @@ public class Ticket {
 		this.price = price;
 	}
 
-	@Override
-	public String toString() {
-		return "Ticket [ movieName=" + event.getMovie().getName() + ", date=" + event.getDate() + ", time="
-				+ event.getTime() + ", seat=" + seat + ", price=" + price + "]";
-	}
 }

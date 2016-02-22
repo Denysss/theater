@@ -9,14 +9,17 @@
  		http://www.springframework.org/schema/util/spring-util-3.2.xsd">
 	
 	<bean id="choice" class="com.epam.spring.theater.domain.Movie">
+		<constructor-arg type="long" value="1"/>
 		<constructor-arg type="java.lang.String" value="The Choice"></constructor-arg>
 	</bean>
 
 	<bean id="tumbledown" class="com.epam.spring.theater.domain.Movie">
+		<constructor-arg type="long" value="2"/>
 		<constructor-arg type="java.lang.String" value="Tumbledown"></constructor-arg>
 	</bean>
 
 	<bean id="greenMile" class="com.epam.spring.theater.domain.Movie">
+		<constructor-arg type="long" value="3"/>
 		<constructor-arg type="java.lang.String" value="The Green Mile"></constructor-arg>
 	</bean>
 	

@@ -24,57 +24,75 @@ public class Theater {
 		LuckyWinnerAspect lwa = (LuckyWinnerAspect) ctx.getBean("luckyWinnerAspect");
 		DiscountAspect da = (DiscountAspect) ctx.getBean("discountAspect");
 		
-		
-		
 		DBProvider db = (DBProvider) ctx.getBean("dbProvider");
 		
-		List<Auditorium> audit = db.jdbcAuditoriumDao.selectAll();
+		List<Auditorium> audit = db.jdbcAuditorium.getAuditoriums();
 		System.out.println(audit.toString());
-		
-		String seats = db.jdbcAuditoriumDao.getSeatsNumber("Red");
+
+		String seats = db.jdbcAuditorium.getSeatsNumber(audit.get(0));
 		System.out.println(seats);
 		
-		String vipSeats = db.jdbcAuditoriumDao.getVipSeats("Green");
+		String vipSeats = db.jdbcAuditorium.getVipSeats(audit.get(1));
 		System.out.println(vipSeats);
 		
-		
-		
 		Event event1 = sp.eventService.getAll().get(0);
+		db.jdbcEvent.create(event1);
+		System.out.println("Size = " + db.jdbcEvent.getAll().size());
+		System.out.println(db.jdbcEvent.getByName("Movie 1"));
+		System.out.println(db.jdbcEvent.getAll());
+		System.out.println(db.jdbcEvent.getForDateRange("2016-02-11", "2016-02-11"));
+		System.out.println(db.jdbcEvent.getNextEvents("2016-02-12"));
+		db.jdbcEvent.remove(db.jdbcEvent.getAll().get(2));
+		System.out.println("Size = " + db.jdbcEvent.getAll().size());
+		
+		User user2 = sp.userService.getUserByName("Alina Subotova");
+		db.jdbcUser.register(user2);
+		User user1 = db.jdbcUser.getUserByName("Bom Bom");
+		System.out.println(user1);
+		System.out.println(db.jdbcUser.getUserByEmail("a_sub777@gmail.com"));
+		System.out.println(db.jdbcUser.getUserById(1));
+		System.out.println("BookedTickets for " + user2.getName() + ": "+ db.jdbcUser.getBookedTickets(user2));
+		System.out.println("BookedTickets for " + user1.getName() + ": "+ db.jdbcUser.getBookedTickets(user1));
+		
+		db.jdbcUser.remove(db.jdbcUser.getUserByEmail("a_sub777@gmail.com"));
+		System.out.println(db.jdbcUser.getUserByEmail("a_sub777@gmail.com"));
+		
+		/*Event event1 = sp.eventService.getAll().get(0);
 		Event event2 = sp.eventService.getAll().get(2);
 		Event event3 = sp.eventService.getAll().get(6);
 
 		User user = sp.userService.getUserByName("Igor Ponomarchuk");
 		User user2 = sp.userService.getUserByName("Alina Subotova");
 
-		Ticket ticket1 = new Ticket(event1, "11", sp.discountService.getDiscount(user, event1, null));
+		Ticket ticket1 = new Ticket(user, event1, "11", sp.discountService.getDiscount(user, event1, null));
 		sp.bookingService.bookTicket(user, ticket1);
 
-		Ticket ticket2 = new Ticket(event1, "13", sp.discountService.getDiscount(user, event1, null));
+		Ticket ticket2 = new Ticket(user, event1, "13", sp.discountService.getDiscount(user, event1, null));
 		sp.bookingService.bookTicket(user, ticket2);
 
-		Ticket ticket3 = new Ticket(event2, "13", sp.discountService.getDiscount(user, event1, null));
+		Ticket ticket3 = new Ticket(user, event2, "13", sp.discountService.getDiscount(user, event1, null));
 		sp.bookingService.bookTicket(user, ticket3);
 
-		Ticket ticket4 = new Ticket(event2, "13", sp.discountService.getDiscount(user, event1, null));
+		Ticket ticket4 = new Ticket(user, event2, "13", sp.discountService.getDiscount(user, event1, null));
 		sp.bookingService.bookTicket(user, ticket4);
 		sp.bookingService.bookTicket(user, null);
 
-		Ticket ticket5 = new Ticket(event3, "11", sp.discountService.getDiscount(user, event1, null));
+		Ticket ticket5 = new Ticket(user, event3, "11", sp.discountService.getDiscount(user, event1, null));
 		sp.bookingService.bookTicket(user, ticket5);
 
-		Ticket ticket6 = new Ticket(event3, "12", sp.discountService.getDiscount(user, event1, null));
+		Ticket ticket6 = new Ticket(user, event3, "12", sp.discountService.getDiscount(user, event1, null));
 		sp.bookingService.bookTicket(user, ticket6);
 
-		Ticket ticket7 = new Ticket(event3, "13", sp.discountService.getDiscount(user, event1, null));
+		Ticket ticket7 = new Ticket(user, event3, "13", sp.discountService.getDiscount(user, event1, null));
 		sp.bookingService.bookTicket(user, ticket7);
 
-		Ticket ticket8 = new Ticket(event3, "14", sp.discountService.getDiscount(user, event1, null));
+		Ticket ticket8 = new Ticket(user, event3, "14", sp.discountService.getDiscount(user, event1, null));
 		sp.bookingService.bookTicket(user, ticket8);
 
-		Ticket ticket9 = new Ticket(event3, "15", sp.discountService.getDiscount(user, event1, null));
+		Ticket ticket9 = new Ticket(user, event3, "15", sp.discountService.getDiscount(user, event1, null));
 		sp.bookingService.bookTicket(user, ticket9);
 
-		Ticket ticket10 = new Ticket(event3, "16", sp.discountService.getDiscount(user, event1, null));
+		Ticket ticket10 = new Ticket(user, event3, "16", sp.discountService.getDiscount(user, event1, null));
 		sp.bookingService.bookTicket(user, ticket10);
 
 		sp.eventService.getByName("Slon");
@@ -126,7 +144,7 @@ public class Theater {
 		System.out.println(da.getDiscountStrategyStatistics().toString());
 		System.out.println("Total: " + da.getDiscountTotalStatistics());
 		System.out.println("-----------------------------------------------------");
-
+		*/
 	}
 
 }

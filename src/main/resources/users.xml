@@ -21,7 +21,7 @@
 	</util:list>
 
 	<bean id="admin" class="com.epam.spring.theater.domain.User">
-		<constructor-arg type="long" name="id" value="1"/>
+		<constructor-arg type="long" name="id" value="999"/>
 		<constructor-arg type="java.lang.String" name="name" value="admin"/>
 		<constructor-arg type="java.lang.String" name="email" value="admin@theater.com"/>
 		<constructor-arg type="org.joda.time.LocalDate" name="birthday" value="#{ T(org.joda.time.LocalDate).parse('1900-01-01') }"/>
@@ -40,21 +40,21 @@
 		<constructor-arg type="boolean" name="admin" value="false"/>
 		<constructor-arg type="java.util.List" name="tickets">
 			<list>
-				<ref bean="ticket_2"/>
+				<!-- >ref bean="ticket_2"/ -->
 			</list>
 		</constructor-arg>
 		<constructor-arg type="int" name="numberOfBookedLuckyTickets" value="0"/>
 	</bean>
 	
 	<bean id="user_2" class="com.epam.spring.theater.domain.User">
-		<constructor-arg type="long" name="id" value="32"/>
+		<constructor-arg type="long" name="id" value="3"/>
 		<constructor-arg type="java.lang.String" name="name" value="Alina Subotova"/>
 		<constructor-arg type="java.lang.String" name="email" value="a_sub777@gmail.com"/>
 		<constructor-arg type="org.joda.time.LocalDate" name="birthday" value="#{ T(org.joda.time.LocalDate).parse('1991-02-11') }"/>
 		<constructor-arg type="boolean" name="admin" value="false"/>
 		<constructor-arg type="java.util.List" name="tickets">
 			<list>
-				<ref bean="ticket_1"/>
+				<!-- >ref bean="ticket_1"/>
 				<ref bean="ticket_4"/>
 				<ref bean="ticket_5"/>
 				<ref bean="ticket_6"/>
@@ -62,14 +62,14 @@
 				<ref bean="ticket_8"/>
 				<ref bean="ticket_9"/>
 				<ref bean="ticket_10"/>
-				<ref bean="ticket_11"/>
+				<ref bean="ticket_11"/ -->
 			</list>
 		</constructor-arg>
 		<constructor-arg type="int" name="numberOfBookedLuckyTickets" value="0"/>
 	</bean>
 	
 	<bean id="user_3" class="com.epam.spring.theater.domain.User">
-		<constructor-arg type="long" name="id" value="2"/>
+		<constructor-arg type="long" name="id" value="4"/>
 		<constructor-arg type="java.lang.String" name="name" value="Dmytro Gulya"/>
 		<constructor-arg type="java.lang.String" name="email" value="gulya12@gmail.com"/>
 		<constructor-arg type="org.joda.time.LocalDate" name="birthday" value="#{ T(org.joda.time.LocalDate).parse('1982-01-18') }"/>

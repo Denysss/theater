@@ -11,11 +11,26 @@
  		http://www.springframework.org/schema/util/spring-util-3.2.xsd">
 
 	<bean id="dbProvider" class="com.epam.spring.theater.DBProvider">
-		<constructor-arg ref="jdbcAuditoriumDao"/>
+		<constructor-arg ref="jdbcAuditorium"/>
+		<constructor-arg ref="jdbcEvent"/>
+		<constructor-arg ref="jdbcMovie"/>
+		<constructor-arg ref="jdbcUser"/>
 	</bean>
 
 
-	<bean id="jdbcAuditoriumDao" class="com.epam.spring.theater.db.JdbcAuditoriumDao">
+	<bean id="jdbcAuditorium" class="com.epam.spring.theater.db.h2.JdbcAuditoriumDaoImpl">
+		<constructor-arg ref="jdbcTemplate"/>
+	</bean>
+	
+	<bean id="jdbcEvent" class="com.epam.spring.theater.db.h2.JdbcEventDaoImpl">
+		<constructor-arg ref="jdbcTemplate"/>
+	</bean>
+	
+	<bean id="jdbcMovie" class="com.epam.spring.theater.db.h2.JdbcMovieDaoImpl">
+		<constructor-arg ref="jdbcTemplate"/>
+	</bean>
+	
+	<bean id="jdbcUser" class="com.epam.spring.theater.db.h2.JdbcUserDaoImpl">
 		<constructor-arg ref="jdbcTemplate"/>
 	</bean>
 

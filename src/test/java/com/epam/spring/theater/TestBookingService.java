@@ -70,8 +70,8 @@ public class TestBookingService extends TestCase {
 
 	@Test
 	public void testBookTicket() {
-		Ticket ticket1 = new Ticket(event_1, "1", 65.0);
-		Ticket ticket2 = new Ticket(event_1, "1", 65.0);
+		Ticket ticket1 = new Ticket(user_3, event_1, "1", 65.0);
+		Ticket ticket2 = new Ticket(user_3, event_1, "1", 65.0);
 
 		assertTrue("Ticket is booked", bookingService.bookTicket(user_3, ticket1));
 		assertTrue("Ticket was added to user", user_3.getTickets().contains(ticket1));
@@ -82,7 +82,7 @@ public class TestBookingService extends TestCase {
 
 	@Test
 	public void testBookTicket_Null() {
-		Ticket ticket1 = new Ticket(event_1, "15", 65.0);
+		Ticket ticket1 = new Ticket(user_3, event_1, "15", 65.0);
 
 		assertFalse("Ticket is not booked", bookingService.bookTicket(null, ticket1));
 		assertFalse("Ticket wasn't added to booking list", booking.getTickets().contains(ticket1));

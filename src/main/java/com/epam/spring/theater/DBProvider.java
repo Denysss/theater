@@ -1,12 +1,22 @@
 package com.epam.spring.theater;
 
-import com.epam.spring.theater.db.JdbcAuditoriumDao;
+import com.epam.spring.theater.db.h2.JdbcMovieDaoImpl;
+
+import com.epam.spring.theater.services.AuditoriumService;
+import com.epam.spring.theater.services.EventService;
+import com.epam.spring.theater.services.UserService;
 
 public class DBProvider {
 
-	public JdbcAuditoriumDao jdbcAuditoriumDao;
+	public AuditoriumService jdbcAuditorium;
+	public EventService jdbcEvent;
+	public JdbcMovieDaoImpl jdbcMovie;
+	public UserService jdbcUser;
 	
-	public DBProvider(JdbcAuditoriumDao jdbcAuditoriumDao) {
-		this.jdbcAuditoriumDao = jdbcAuditoriumDao;
+	public DBProvider(AuditoriumService auditorium, EventService event, JdbcMovieDaoImpl movie, UserService user) {
+		jdbcAuditorium = auditorium;
+		jdbcEvent = event;
+		jdbcMovie = movie;
+		jdbcUser = user;
 	}
 }

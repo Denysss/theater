@@ -19,18 +19,21 @@
 	</util:list>
 
 	<bean id="green" class="com.epam.spring.theater.domain.Auditorium" init-method="initVipSeats">
+		<constructor-arg type="long" name="id" value="1"/>
 		<constructor-arg type="java.lang.String" name="name" value="Green"/>
 		<constructor-arg ref="listOfSeats_1_14"/>
 		<constructor-arg type="java.lang.String" name="vipSeats" value="1,two,3,4,5,6,7"/>
 	</bean>
 
 	<bean id="red" class="com.epam.spring.theater.domain.Auditorium" init-method="initVipSeats">
+		<constructor-arg type="long" name="id" value="2"/>
 		<constructor-arg type="java.lang.String" name="name" value="Red"/>
 		<constructor-arg ref="listOfSeats_1_28"/>
 		<constructor-arg type="java.lang.String" name="vipSeats" value=""/>
 	</bean>
 
 	<bean id="blue" class="com.epam.spring.theater.domain.Auditorium" init-method="initVipSeats">
+		<constructor-arg type="long" name="id" value="3"/>
 		<constructor-arg type="java.lang.String" name="name" value="Blue"/>
 		<constructor-arg ref="listOfSeats_1_60"/>
 		<constructor-arg type="java.lang.String" name="vipSeats" value="5,6,7,8,9,10"/>
